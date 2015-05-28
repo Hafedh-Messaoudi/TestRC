@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+	<title>Get-Way</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.js"></script>
+	<script src="app.js"></script>
+</head>
+
+<body>
+	<h2>Trade details search</h2>
+	<div ng-controller="searchCtrl">
+		<label>Search</label> :<input data-ng-model="tradeId"></input> {{tradeId}}
+		 
+		<br /> 
+		<br /> 
+		<br />
+		
+		<button data-ng-click="search(tradeId)">Search</button>
+		
+		<br />
+		<br />
+		
+<!-- 		<ul> -->
+<!-- 			<li data-ng-repeat="s in data.issues">{{s.issueName}} : {{s.issueDescription}}</li> -->
+<!-- 		</ul> -->
+		<div>
+			<p>Index : {{data.calculatedIndex}}</p>
+			<p>Trade ID : {{data.tradeId}}</p>
+			<p>Settlement currency : {{data.settlementCurrency}}</p>
+			<p>Trade date : {{data.tradeDate}}</p>
+			<p>Product type : {{data.productType}}</p>
+			<p>Bucketed interest rate convexity :
+				{{data.bucketedInterestRateConvexity}}</p>
+			<p>Bucketed interest rate sensitivity :
+				{{data.bucketedInterestRateSensitivity}}</p>
+
+		</div>
+
+
+	</div>
+
+	---------------------------------------------
+
+<!-- 	<div ng-controller="ConsumerController"> -->
+<!-- 		<div> -->
+<!-- 			<input type="text" ng-model /> <input -->
+<!-- 				type="button" ng-click="submitValue()" /> -->
+<!-- 		</div> -->
+<!-- 		<div> -->
+<!-- 			<p>Index : {{data.calculatedIndex}}</p> -->
+<!-- 			<p>Trade ID : {{data.tradeId}}</p> -->
+<!-- 			<p>Settlement currency : {{data.settlementCurrency}}</p> -->
+<!-- 			<p>Trade date : {{data.tradeDate}}</p> -->
+<!-- 			<p>Product type : {{data.productType}}</p> -->
+<!-- 			<p>Bucketed interest rate convexity : -->
+<!-- 				{{data.bucketedInterestRateConvexity}}</p> -->
+<!-- 			<p>Bucketed interest rate sensitivity : -->
+<!-- 				{{data.bucketedInterestRateSensitivity}}</p> -->
+
+<!-- 		</div> -->
+<!-- 	</div> -->
+</body>
+</html>
