@@ -1,4 +1,4 @@
-angular.module('restConsumer', ['chartjs-directive'])
+angular.module('restConsumer', ['chart.js'])
 
 .controller(
 	'ConsumerController',
@@ -12,32 +12,18 @@ angular.module('restConsumer', ['chartjs-directive'])
 				// https://vps164933.ovh.net:8065/tradeinfo/getTradeInfo/914448852CHF?KeyId=4cf6623b-5dcf-4a31-a05e-73850b2cea3c
 				
 				$http.get(
-						'https://vps164933.ovh.net:8065/tradeinfo/getTradeInfo/' + $scope.inputValue + '?KeyId=4cf6623b-5dcf-4a31-a05e-73850b2cea3c')
+						'https://vps164933.ovh.net:8065/tradeinfo/getTradeInfo/' + $scope.inputValue + '?KeyId=4cf6623b-5dcf-4a31-a05e-73850b2cea3c',  { cache: false}) 
 				.success(function(data) {
-					$scope.greeting = data;
+					$scope.result = data;
+					$scope.calculatedIndex = Math.abs(data.calculatedIndex);
+					$scope.birc = Math.abs(data.bucketedInterestRateConvexity);
+					$scope.birs = Math.abs(data.bucketedInterestRateSensitivity);
 					
-
-				    var chartData = {
-				      labels : ['Index', 'BIR Convexity', 'BIR Sensitivity'],
-				      datasets : [
-				        {
-				          fillColor : "rgba(220,220,220,0.5)",
-				          strokeColor : "rgba(220,220,220,1)",
-				          pointColor : "rgba(220,220,220,1)",
-				          pointStrokeColor : "#fff",
-				          chartData : [data.calculatedIndex,data.calculatedIndex,data.calculatedIndex]
-				        },
-				        {
-				          fillColor : "rgba(151,187,205,0.5)",
-				          strokeColor : "rgba(151,187,205,1)",
-				          pointColor : "rgba(151,187,205,1)",
-				          pointStrokeColor : "#fff",
-				          chartData : [data.calculatedIndex,data.bucketedInterestRateConvexity,data.bucketedInterestRateSensitivity]
-				        }
-				      ]
-				    }				    
-
-				    $scope.myChart.data = chartData;
+					$scope.labels = ['Index', 'BIRC', 'BIRS'];
+					
+					$scope.chartData = [
+						[$scope.calculatedIndex, $scope.birc, $scope.birs]
+					];
 					
 				}).error(function(status) {
 					var message = status;
