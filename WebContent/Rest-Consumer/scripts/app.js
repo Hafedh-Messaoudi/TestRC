@@ -10,9 +10,10 @@ angular.module('restConsumer', ['chart.js'])
 				
 				//'http://vps164933.ovh.net:8080/tradeinfo/getTradeInfo/-397851117GBP')
 				// https://vps164933.ovh.net:8065/tradeinfo/getTradeInfo/914448852CHF?KeyId=4cf6623b-5dcf-4a31-a05e-73850b2cea3c
+				// 'https://vps164933.ovh.net:8065/tradeinfo/getTradeInfo/
 				
 				$http.get(
-						'https://vps164933.ovh.net:8065/tradeinfo/getTradeInfo/' + $scope.inputValue + '?KeyId=4cf6623b-5dcf-4a31-a05e-73850b2cea3c',  { cache: false}) 
+						'http://vps164933.ovh.net:8066/tradeinfo/getTradeInfo/' + $scope.inputValue + '?KeyId=4cf6623b-5dcf-4a31-a05e-73850b2cea3c',  { cache: false}) 
 				.success(function(data) {
 					$scope.result = data;
 					$scope.calculatedIndex = Math.abs(data.calculatedIndex);
